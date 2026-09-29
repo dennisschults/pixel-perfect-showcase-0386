@@ -390,9 +390,9 @@ function Concept() {
                 category: "Influencer-DJ",
                 note: "Creators die vanuit een bestaand publiek de muziekwereld binnenstappen.",
                 people: [
-                  { name: "Lies Zhara", role: "DJ & creator", image: liesImg },
-                  { name: "Sam Hoffman", role: "DJ & creator", image: samHoffmanImg },
-                  { name: "JOY LIANA", role: "DJ & creator", image: joyImg },
+                  { name: "Lies Zhara", role: "Creator & DJ", image: liesImg },
+                  { name: "Sam Hoffman", role: "Creator & DJ", image: samHoffmanImg },
+                  { name: "JOY LIANA", role: "Creator & DJ", image: joyImg },
                 ],
               },
               {
@@ -449,9 +449,7 @@ function Concept() {
                           {person.name}
                         </p>
                         <p className="mt-1 text-sm text-foreground/60">{person.role}</p>
-                        <p className="mt-4 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                          Template — echte foto volgt
-                        </p>
+                       
                       </div>
                     </Reveal>
                   ))}
@@ -490,9 +488,7 @@ function Concept() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <p className="mt-4 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                Template — echte foto volgt
-              </p>
+        
               <ul className="mt-8 border-t border-border">
                 {["30 jaar programmering", "DJ-achtergrond", "Talentontwikkeling"].map((item) => (
                   <li
