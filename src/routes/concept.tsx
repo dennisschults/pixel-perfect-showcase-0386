@@ -1,14 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
+import funkImg from "@/assets/funk.jpg";
+import hendrikImg from "@/assets/hendrik.jpg";
+import joyImg from "@/assets/joy.jpg";
+import liesImg from "@/assets/lies.png";
 import placeholder1 from "@/assets/placeholder-1.png";
-import placeholder2 from "@/assets/placeholder-2.png";
-import placeholder3 from "@/assets/placeholder-3.png";
-import placeholderModerator from "@/assets/placeholder-moderator.png";
+import robertImg from "@/assets/robert.jpg";
+import samHoffmanImg from "@/assets/sam.jpg";
+import samHeegstraImg from "@/assets/sam.png";
+import tellImg from "@/assets/tell.png";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
-
-const placeholders = [placeholder1, placeholder2, placeholder3];
 
 export const Route = createFileRoute("/concept")({
   head: () => ({
@@ -387,26 +390,30 @@ function Concept() {
                 category: "Influencer-DJ",
                 note: "Creators die vanuit een bestaand publiek de muziekwereld binnenstappen.",
                 people: [
-                  { name: "Lies Zhara", role: "DJ & creator" },
-                  { name: "Sam Hoffman", role: "DJ & creator" },
-                  { name: "JOY LIANA", role: "DJ & creator" },
+                  { name: "Lies Zhara", role: "DJ & creator", image: liesImg },
+                  { name: "Sam Hoffman", role: "DJ & creator", image: samHoffmanImg },
+                  { name: "JOY LIANA", role: "DJ & creator", image: joyImg },
                 ],
               },
               {
                 category: "Boeker / programmeur",
                 note: "Hendrik-Jan Derksen is interessant omdat hij zowel DJ als boeker is en daarmee beide kanten van het gesprek begrijpt. Sam Heegstra is interessant vanwege zijn programmeerwerk en focus op Nederlands talent.",
                 people: [
-                  { name: "Hendrik-Jan Derksen", role: "DJ & boeker" },
-                  { name: "Sam Heegstra", role: "Doornroosje" },
+                  { name: "Hendrik-Jan Derksen", role: "DJ & boeker", image: hendrikImg },
+                  { name: "Sam Heegstra", role: "Doornroosje", image: samHeegstraImg },
                 ],
               },
               {
                 category: "Authentieke DJ",
                 note: "Artiesten die jarenlang investeren in vakmanschap en een eigen sound.",
                 people: [
-                  { name: "Tell Moore", role: "Producer & DJ" },
-                  { name: "Funkmoore Brothers", role: "Live & DJ" },
-                  { name: "Artiest uit de Bredase / Eindhovense scene", role: "Nog te bepalen" },
+                  { name: "Tell Moore", role: "Producer & DJ", image: tellImg },
+                  { name: "Funkmoore Brothers", role: "Live & DJ", image: funkImg },
+                  {
+                    name: "Artiest uit de Bredase / Eindhovense scene",
+                    role: "Nog te bepalen",
+                    image: placeholder1,
+                  },
                 ],
               },
             ].map((group, gi) => (
@@ -428,8 +435,8 @@ function Concept() {
                     >
                       <div className="aspect-[4/5] overflow-hidden bg-secondary">
                         <img
-                          src={placeholders[(pi + gi) % placeholders.length]}
-                          alt={`Template afbeelding voor ${person.name}`}
+                          src={person.image}
+                          alt={`Afbeelding voor ${person.name}`}
                           width={1024}
                           height={1280}
                           loading="lazy"
@@ -475,8 +482,8 @@ function Concept() {
             <Reveal delay={140} className="md:col-span-5">
               <div className="aspect-[4/5] overflow-hidden bg-secondary">
                 <img
-                  src={placeholderModerator}
-                  alt="Template afbeelding voor Robert Schaeffer"
+                  src={robertImg}
+                  alt="Afbeelding van Robert Schaeffer"
                   width={1024}
                   height={1280}
                   loading="lazy"
