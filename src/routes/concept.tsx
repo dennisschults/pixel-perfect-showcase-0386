@@ -38,14 +38,14 @@ const sections = [
 
 function useScrollState() {
   const [progress, setProgress] = useState(0);
-  const [active, setActive] = useState(sections[0].id);
+  const [active, setActive] = useState(sections[0]!.id);
 
   useEffect(() => {
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
 
-      let current = sections[0].id;
+      let current = sections[0]!.id;
       for (const section of sections) {
         const el = document.getElementById(section.id);
         if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.35) {
@@ -519,7 +519,7 @@ function Flow({
   label,
   steps,
   accent,
-  delay,
+  delay = 0,
 }: {
   label: string;
   steps: string[];
