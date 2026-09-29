@@ -1,8 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
+import placeholder1 from "@/assets/placeholder-1.png";
+import placeholder2 from "@/assets/placeholder-2.png";
+import placeholder3 from "@/assets/placeholder-3.png";
+import placeholderModerator from "@/assets/placeholder-moderator.png";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
+
+const placeholders = [placeholder1, placeholder2, placeholder3];
 
 export const Route = createFileRoute("/concept")({
   head: () => ({
@@ -418,25 +424,28 @@ function Concept() {
                     <Reveal
                       key={person.name}
                       delay={pi * 90 + gi * 40}
-                      className="bg-background p-6 transition-colors duration-500 hover:bg-secondary"
+                      className="group bg-background transition-colors duration-500 hover:bg-secondary"
                     >
-                      <div className="flex aspect-[4/5] items-end bg-secondary p-4">
-                        <span className="display-xl text-[clamp(2rem,5vw,3.5rem)] text-foreground/15">
-                          {person.name
-                            .split(" ")
-                            .map((word) => word[0])
-                            .slice(0, 2)
-                            .join("")}
-                        </span>
+                      <div className="aspect-[4/5] overflow-hidden bg-secondary">
+                        <img
+                          src={placeholders[(pi + gi) % placeholders.length]}
+                          alt={`Template afbeelding voor ${person.name}`}
+                          width={1024}
+                          height={1280}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        />
                       </div>
-                      <p className="label-eyebrow mt-5 text-primary">Potentiële spreker</p>
-                      <p className="mt-3 text-lg font-semibold uppercase tracking-[0.06em]">
-                        {person.name}
-                      </p>
-                      <p className="mt-1 text-sm text-foreground/60">{person.role}</p>
-                      <p className="mt-4 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                        Bio &amp; socials volgen
-                      </p>
+                      <div className="p-6">
+                        <p className="label-eyebrow text-primary">Potentiële spreker</p>
+                        <p className="mt-3 text-lg font-semibold uppercase tracking-[0.06em]">
+                          {person.name}
+                        </p>
+                        <p className="mt-1 text-sm text-foreground/60">{person.role}</p>
+                        <p className="mt-4 text-xs uppercase tracking-[0.16em] text-muted-foreground">
+                          Template — echte foto volgt
+                        </p>
+                      </div>
                     </Reveal>
                   ))}
                 </div>
@@ -464,7 +473,20 @@ function Concept() {
             </Reveal>
 
             <Reveal delay={140} className="md:col-span-5">
-              <ul className="border-t border-border">
+              <div className="aspect-[4/5] overflow-hidden bg-secondary">
+                <img
+                  src={placeholderModerator}
+                  alt="Template afbeelding voor Robert Schaeffer"
+                  width={1024}
+                  height={1280}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <p className="mt-4 text-xs uppercase tracking-[0.16em] text-muted-foreground">
+                Template — echte foto volgt
+              </p>
+              <ul className="mt-8 border-t border-border">
                 {["30 jaar programmering", "DJ-achtergrond", "Talentontwikkeling"].map((item) => (
                   <li
                     key={item}
